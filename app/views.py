@@ -51,7 +51,12 @@ def employeeDetailView(request,pk):
             return Response(serializer.errors)
 
  
- def userlist(request):
+def userlist(request):
+    users = User.objects.all()
+    serializer = UserSerializer(users, many=True)
+    return JsonResponse(serializer.data, safe=False)
+
+def aad(request):
     users = User.objects.all()
     serializer = UserSerializer(users, many=True)
     return JsonResponse(serializer.data, safe=False)
