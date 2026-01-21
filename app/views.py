@@ -56,7 +56,3 @@ def userlist(request):
     serializer = UserSerializer(users, many=True)
     return JsonResponse(serializer.data, safe=False)
 
-def aad(request):
-    users = User.objects.all()
-    serializer = UserSerializer(users, many=True)
-    return JsonResponse(serializer.data, safe=False)
